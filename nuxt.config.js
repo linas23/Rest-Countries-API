@@ -1,37 +1,37 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from "vuetify/es5/util/colors";
 
 export default {
-  mode: 'universal',
+  mode: "universal",
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
-    title: process.env.npm_package_name || '',
+    titleTemplate: "%s - " + process.env.npm_package_name,
+    title: process.env.npm_package_name || "",
     meta: [{
-        charset: 'utf-8'
+        charset: "utf-8"
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || ''
+        hid: "description",
+        name: "description",
+        content: process.env.npm_package_description || ""
       }
     ],
     link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
+      rel: "icon",
+      type: "image/x-icon",
+      href: "/favicon.ico"
     }]
   },
   /*
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: "#fff"
   },
   /*
    ** Global CSS
@@ -40,24 +40,24 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{
-    src: "~/plugins/google-maps",
-    ssr: true
-  }],
+  plugins: [
+    /* {
+        src: "~/plugins/google-maps",
+        ssr: true
+      } */
+  ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    '@nuxtjs/vuetify',
-  ],
+  buildModules: ["@nuxtjs/vuetify"],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    "@nuxtjs/axios",
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
+    "@nuxtjs/dotenv"
   ],
   /*
    ** Axios module configuration
@@ -69,7 +69,7 @@ export default {
    ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       themes: {
         dark: {
@@ -91,18 +91,18 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    transpile: [/^vue2-google-maps($|\/)/],
+    // transpile: [/^vue2-google-maps($|\/)/],
     extend(config, {
       isDev
     }) {
       if (isDev && process.client) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
+          loader: "eslint-loader",
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
